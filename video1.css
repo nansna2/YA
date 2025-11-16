@@ -1,0 +1,295 @@
+/* ------------------------------
+   ESTILOS GENERALES
+------------------------------ */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 60px; /* **Ajuste para mover la columna derecha más a la derecha** */
+  border-right: 2px solid rgba(238, 133, 188, 0.25); /* línea separadora tenue */
+}
+
+/* ------------------------------
+   COLUMNA IZQUIERDA
+------------------------------ */
+.contenido-principal {
+  flex: 1 1 700px;
+  max-width: 850px;
+  /* **Ajuste para alejar la columna derecha (recursos)** */
+  margin-right: 20px; 
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 1em;
+}
+
+/* ------------------------------
+   VIDEO Y FLECHAS
+------------------------------ */
+.video-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Flechas pequeñas y con espacio separado */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 240, 250, 0.8);
+  border: none;
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s; /* Se elimina el transform de la transición base */
+}
+
+.flecha:hover {
+  background: #FBC9E3;
+  /* **Se elimina el transform: scale(1.1) para que no se muevan al pasar el cursor** */
+}
+
+/* separadas del video */
+.flecha.izq { left: -30px; }
+.flecha.der { right: -35px; }
+
+/* ------------------------------
+   PESTAÑAS
+------------------------------ */
+.tabs {
+  margin-top: 20px;
+  background: #fdf7fb;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tabs input {
+  display: none;
+}
+
+.tabs label {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.tabs label:hover {
+  color: #EE85BC;
+}
+
+.tabs input:checked + label {
+  color: #EE85BC;
+  border-bottom: 2px solid #EE85BC;
+}
+
+.contenido-tab {
+  display: none;
+  padding: 10px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+#tab1:checked ~ #c1,
+#tab2:checked ~ #c2,
+#tab3:checked ~ #c3 {
+  display: block;
+}
+
+/* ------------------------------
+   COLUMNA DERECHA (RECURSOS)
+------------------------------ */
+.recursos {
+  width: 260px;
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+/* Botón de favoritos (Añadido) */
+.btn-favorito {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #FBC9E3;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-favorito:hover {
+  background: #EE85BC;
+  transform: scale(1.1);
+}
+
+/* Título de recursos (Añadido) */
+.titulo-recursos {
+  text-align: center;
+  font-weight: 600;
+  color: #474860;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  margin-top: 0; /* Ajustado para que quede arriba */
+}
+
+.bloque-juego {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bloque-juego img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.btn-jugar {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #EE85BC;
+  color: white;
+  border-radius: 20px;
+  padding: 6px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-jugar:hover {
+  background: #FBC9E3;
+}
+
+/* Lista de recursos */
+.lista-recursos {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.lista-recursos li {
+  margin: 10px 0;
+}
+
+.lista-recursos li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* efecto hover pero no activo por defecto */
+.lista-recursos li a:hover {
+  background: #FBC9E3;
+  color: #fff;
+}
+
+.img-recurso img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (max-width: 900px) {
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+    border-right: none;
+    gap: 30px; /* Restaurar gap para móvil */
+  }
+
+  .contenido-principal {
+      margin-right: 0; /* Eliminar margen extra para móvil */
+  }
+
+  .recursos {
+    width: 90%;
+  }
+
+  .btn-favorito {
+    top: 10px;
+    right: 10px;
+  }
+
+  .flecha.izq { left: 10px; }
+  .flecha.der { right: 10px; }
+}
+
+
+/* Estilos para el botón de Guardar en Favoritos en las pestañas */
+.btn-favorito-tabs {
+  background: #EE85BC;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  /* Posicionamiento al lado de las pestañas */
+  float: right; 
+  margin-top: 5px; 
+  margin-right: 5px;
+}
+
+.btn-favorito-tabs:hover {
+  background: #FBC9E3;
+}
+
+/* Ajuste adicional para móvil */
+@media (max-width: 900px) {
+  .btn-favorito-tabs {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}
