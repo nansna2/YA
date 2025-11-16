@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AHNISA</title>
+  <link rel="stylesheet" href="juego-colores.css" />
+</head>
+<body>
+
+  
+
+  
+  <div id="inicio" class="pantalla">
+    <h1>Unir emociones, colores y figuras</h1>
+    <button id="btnComenzar" class="btn">Comenzar</button>
+  </div>
+
+  <div id="juego" class="pantalla oculto">
+    <div class="header">
+      <div class="left">
+        <div id="nivelTexto">Nivel 1</div>
+      </div>
+      <div class="right">
+        <div id="puntos">Puntos: 0</div>
+        <button id="btnMusica" class="icon-btn" title="Reproducir / pausar música">♫</button>
+      </div>
+    </div>
+
+    <div id="contenedor" class="contenedor"></div>
+
+    <div class="footer">
+      <button id="btnSiguiente" class="btn oculto">Siguiente nivel</button>
+      <button id="btnReiniciar" class="btn">Volver al inicio</button>
+    </div>
+  </div>
+
+  <div id="final" class="pantalla oculto">
+    <h1>¡Juego completado!</h1>
+    <p id="puntajeFinal"></p>
+    <button id="btnReiniciarFinal" class="btn">Volver al inicio</button>
+  </div>
+
+  <audio id="musicaFondo" loop preload="auto" src="musicajuego .mp3"></audio>
+  <audio id="sonidoAcierto" src="ahnisa.mp3"></audio>
+  <audio id="sonidoError" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1cf050e35b.mp3?filename=error-126627.mp3"></audio>
+
+  <script src="juego-colores.js"></script>
+</body>
+</html>
