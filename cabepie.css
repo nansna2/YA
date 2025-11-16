@@ -1,0 +1,329 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.contenedor-principal {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.footer {
+    /* ... otras reglas ... */
+    font-size: 1em;
+    margin-top: 45px; /* ¡ESTO CAUSA EL ESPACIO BLANCO! */
+    overflow-x: hidden;
+}
+
+.cabecera {
+    width: 100%;
+    background: #f5f5f5;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    min-height: 50px;
+    font-family:sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+.navegacion {
+    margin-right: 22px;
+}
+
+.navegacion ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 1.1em;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navegacion ul li a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 6px 26px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #000;
+    transition: all 0.3s ease;
+}
+
+
+.navegacion ul li a[href="tienda.html"] {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    padding-right: 16px;
+    position: relative;
+}
+
+.navegacion ul li a[href="tienda.html"]::after {
+   
+    font-size: 0.55em;
+    margin-left: 6px;
+    position: relative;
+    top: -1px;
+}
+
+
+.navegacion ul li a {
+    background-color: #474860;
+    color: #ffffff;
+}
+
+.navegacion ul li a.activo {
+    background-color: #4a4a63;
+    color: #fff;
+}
+
+
+.navegacion ul li a:hover {
+    background-color:#f5f5f5;
+    color: #4a4a63;
+}
+
+
+.navegacion i {
+    font-size: 1em;
+}
+
+
+@media (max-width: 600px) {
+    .cabecera {
+        flex-direction: row;
+        padding: 6px 0;
+    }
+
+    .logo {
+        margin-left: 8px;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .navegacion {
+        margin-right: 8px;
+    }
+
+    .navegacion ul {
+        gap: 6px;
+        font-size: 0.9em;
+    }
+
+    .navegacion ul li a {
+        padding: 4px 12px;
+    }
+}
+
+
+.footer {
+    width: 100%;
+    background: #474860;
+    color: #fff;
+    padding: 18px 0 0;
+    font-family: sans-serif;
+    font-size: 1em;
+    margin-top: 45px;
+    overflow-x: hidden;
+}
+
+/* Parte superior del footer */
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    font-size: 0.98em;
+    margin-bottom: 12px;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 12px 32px;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #EE85BC;
+}
+
+/* Copyleft y botones */
+.cop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 8px auto 12px;
+    font-size: 0.9em;
+}
+
+.lolo {
+    margin-left: 10px;
+}
+
+/* CORRECCIÓN 1: Se eliminan las propiedades que cortaban el texto. 
+   El botón se ajustará al ancho de "¿QUIÉNES SOMOS?". */
+.lo {
+    display: inline-block;
+    border-radius: 20px;
+    border: none;
+    min-width: 120px;
+    /* max-width eliminado para permitir que se estire */
+    height: 28px;
+    font-size: 0.88em;
+    cursor: pointer;
+    background: #EE85BC;
+    color: #fff;
+    text-align: center;
+    /* Padding ajustado para mejor espacio */
+    padding: 5px 15px; 
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    white-space: nowrap;
+    /* overflow: hidden y text-overflow: ellipsis eliminados */
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.lo:hover {
+    background: #7AD5F9;
+    transform: scale(1.05);
+}
+
+.lo:active {
+    transform: scale(0.98);
+}
+
+/* Branding */
+.footer-brad {
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Separador */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px auto;
+    width: 90%;
+}
+
+/* Parte inferior del footer */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Redes sociales */
+.footer-social a {
+    margin: 0 3px;
+}
+
+.footer-social img {
+    width: 28px;
+    height: 28px;
+    margin: 0 1px;
+    vertical-align: middle;
+}
+
+/* --------------------
+   MEDIA QUERIES RESPONSIVE
+-------------------- */
+@media (max-width: 1024px) {
+    .footer-top,
+    .cop,
+    .footer-bottom {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top,
+    .cop,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-top {
+        margin-left: 0;
+        padding: 0 10px;
+    }
+
+    /* CORRECCIÓN 2: Se eliminan las restricciones de ancho en esta media query */
+    .lolo{
+        min-width: auto;
+        max-width: none;
+    }
+
+    hr {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 15px 0 0;
+    }
+
+    .footer-link {
+        font-size: 0.95em;
+    }
+
+    /* CORRECCIÓN 3: Se eliminan las restricciones de ancho y se ajusta el padding */
+    .lo {
+        min-width: 90px;
+        /* max-width eliminado */
+        font-size: 0.85em;
+        padding: 3px 10px;
+    }
+
+    .cop {
+        gap: 12px;
+    }
+
+    .footer-top {
+        gap: 12px;
+    }
+
+    .footer-social img {
+        width: 16px;
+        height: 16px;
+    }
+}

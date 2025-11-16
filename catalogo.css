@@ -1,0 +1,1008 @@
+/* RESET GLOBAL PARA UN MEJOR RESPONSIVE */
+* {
+    box-sizing: border-box; /* Esto asegura que el padding y el borde se incluyan DENTRO del width/height declarado */
+}
+
+/* ==================================================
+   VARIABLES DE COLOR Y FUENTE
+================================================== */
+:root {
+  --rosa: #f8b4d9;
+  --rosa-fuerte: #EE85BC; 
+  --rosa-claro-fbc: #fbc9e3; /* Fondo para la tarjeta destacada */
+  --azul: #9cd7ff;
+  --azul-oscuro: #243b6b;
+  --blanco: #fff;
+  --gris-claro: #f3f3f3;
+  --sombra: rgba(0, 0, 0, 0.1);
+  --transicion: all 0.3s ease;
+  --fuente-principal: Arial, Helvetica, sans-serif; /* Tipografía Sans-serif */
+}
+
+/* 🔥 CORRECCIÓN 1: Reducción de margen en secciones principales (para escritorio/tablet) */
+.mas{ margin-top: 100px;} /* Reducido de 150px a 100px como sugerencia */
+
+.cosa {
+    width: 100%;
+    max-width: 1200px;
+    margin: 45px auto 12px auto; 
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    padding: 0 34px;
+    box-sizing: border-box;
+    position: relative; 
+}
+.cosa .frase-corta {
+    font-size: 0.9em;
+    font-family: sans-serif;
+    color: #666;
+    margin-right: 12px;
+    white-space: nowrap; 
+}
+.cosa::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: #ccc; 
+    opacity: 0.7;
+    margin-top: 1px;
+}
+.cosa h1 {
+    font-size: 1.12em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    color: #08172D;
+    text-transform: capitalize;
+    /* display: inline-block; - Se modificará en el media query para centrar en móvil */
+    position: relative;
+    padding-bottom: 7px;
+}
+.cosa h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #ff9eef;
+    border-radius: 1px;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+.ll {
+    font-size: 2em;
+    color: #ff8fec;
+    opacity: 0.09;
+    margin-left: 7px;
+    user-select: none;
+    pointer-events: none;
+}
+/* 🔥 CORRECCIÓN 2: Centrar el título de estrenos en escritorio */
+.t {
+    margin-top: 30px;
+    text-align: center; 
+}
+
+/* Aplicación de la fuente principal y fondo al cuerpo del documento */
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--gris-claro);
+    color: var(--azul-oscuro);
+
+    margin: 0;
+}
+
+.btn-secundario {
+    /* Estilo del botón 'Cursos' en la tarjeta destacada */
+    background-color: var(--blanco);
+    color: var(--rosa-fuerte);
+    border: 2px var(--rosa-fuerte);
+    padding: 0.5rem 2rem ;
+    padding-right: 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transicion);
+    box-shadow: #333;
+    display: inline-block;
+    margin-top: 1rem 1rem 12px;
+    width: 100px;
+}
+
+.btn-secundario:hover {
+    background-color: var(--rosa-fuerte);
+    color: var(--blanco);
+}
+
+.titulo-seccion {
+    /* Estilo para los títulos de sección (como CURSOS EN PROCESO) */
+    font-size: 1.5rem;
+    color: var(--rosa-fuerte);
+    text-align: left; 
+    max-width: 1200px;
+    margin: 4rem 30px 1.5rem;
+    padding: 0 1rem;
+    font-weight: 700;
+}
+
+/* ==================================================
+   SECCIÓN 1: CURSOS HERO / BANNER 
+================================================== */
+.cursos-hero {
+    position: relative;
+    width: 100%;
+    height: 430px; 
+    overflow: hidden;
+    background-color: #474860;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;   /* AHORA TOCA ABAJO */
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.cursos-hero img {
+    width: auto;
+    max-width: 95%;         /* MÁS GRANDE, AJUSTA A TU GUSTO */
+    height: auto;
+    max-height: 440px;      /* Puede ser casi toda la altura del banner */
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+    .cursos-hero {
+        height: 180px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .cursos-hero img {
+        max-width: 98vw;
+        max-height: 160px;
+    }
+}
+
+/* 🔥 CORRECCIÓN 3: Asegurar centrado de la tarjeta principal en escritorio */
+.curso-principal {
+    max-width: 1300px; 
+    margin: 2rem auto 4rem; /* margin: auto asegura el centrado */
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.curso-tarjeta {
+    display: flex;
+    flex-direction: row; 
+    background-color: var(--blanco);
+    border-radius: 20px; 
+    box-shadow: 0 10px 20px var(--sombra);
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.curso-tarjeta:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-info {
+    /* Lado izquierdo (Texto y Botón) */
+    background-color: var(--rosa-claro-fbc); 
+    padding: 2.5rem; 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px 0 0 20px; 
+}
+
+.tarjeta-info h3 {
+    color: #333; 
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: bold; 
+}
+
+.tarjeta-info p {
+    color: #555; 
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Lado derecho (Imagen y detalle inferior) */
+.tarjeta-visual {
+    flex: 1.2; 
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco); 
+}
+
+.tarjeta-imagen {
+    flex-grow: 1; 
+    overflow: hidden;
+    border-radius: 0 20px 0 0; 
+}
+
+.tarjeta-imagen img {
+    width: 750px; 
+    height: 422px; 
+    object-fit: cover;
+    display: block;
+    border-radius: 0 20px 0 0;
+}
+
+/* Detalle inferior (título pequeño y año) */
+.tarjeta-detalle-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem; 
+    color: #555;
+    font-size: 0.9rem;
+    border-radius: 0 0 20px 0;
+}
+
+.curso-titulo-inferior {
+    font-weight: 600;
+}
+
+.curso-ano {
+    font-weight: 400;
+    color: #999;
+}
+
+/* ==================================================
+   SECCIÓN 3: CURSOS EN PROCESO (CARRUSEL HORIZONTAL)
+================================================== */
+.cursos-proceso {
+    padding: 1rem 0; 
+    max-width: 100%; 
+    margin: 0 auto;
+}
+.cursos-carrusel {
+    max-width: 1200px; 
+    margin: 0 auto;
+    overflow-x: hidden; 
+    overflow-y: hidden;
+    padding: 1rem 0; 
+    white-space: nowrap; 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    position: relative; 
+}
+
+/* Ocultar barra de scroll en WebKit */
+.cursos-carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+.cursos-grid {
+    display: flex; 
+    gap: 2rem; 
+    padding: 0 1rem; 
+    width: fit-content; 
+    max-width: none;
+    animation: auto-scroll 30s linear infinite; 
+}
+
+/* Pausar la animación al pasar el ratón */
+.cursos-carrusel:hover .cursos-grid {
+    animation-play-state: paused;
+}
+
+/* 1. Tarjetas MÁS GRANDES */
+.curso-proximo {
+    min-width: 350px; 
+    width: 350px;     
+    height: auto;
+    background-color: var(--blanco);
+    border-radius: 12px; 
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 6px 12px var(--sombra); 
+    transition: var(--transicion);
+    display: flex;
+    flex-direction: column;
+}
+
+.curso-proximo img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    flex-shrink: 0; 
+}
+
+/* Contenedor para el título y el año (al pie de la imagen) */
+.proximo-detalle-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem; 
+    color: #444;
+    font-size: 1rem; 
+    flex-grow: 1; 
+}
+
+.curso-titulo-carrusel {
+    font-weight: 700; 
+    line-height: 1.3;
+    white-space: normal; 
+    max-width: 75%; 
+}
+
+.curso-ano-carrusel {
+    font-weight: 500;
+    color: #777;
+    align-self: flex-start; 
+}
+
+/* 2. Animación de auto-scroll (keyframes) */
+@keyframes auto-scroll {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+/* ==================================================
+   SECCIÓN 4: FECHAS DE ESTRENO (Tarjetas con número grande)
+================================================== */
+.fechas-estreno {
+    max-width: 1100px;
+    margin: 6rem auto;
+    padding: 0 1rem;
+}
+
+.fechas-timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: center;
+}
+
+.evento {
+    flex: 1;
+    position: relative;
+    padding-top: 5rem; 
+    margin-top: 1rem;
+}
+
+.evento .numero {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    font-weight: 900;
+    color: black;
+    opacity: 0.8;
+    line-height: 1;
+}
+
+.evento .mes {
+    display: block;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.evento p {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* ==================================================
+   SECCIÓN 5: DESPEDIDA CON PERSONAJE (Banner final)
+================================================== */
+.cursos-despedida {
+    position: relative;
+    background-color: var(--blanco);
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 4rem; 
+    padding: 2rem 1rem;
+    overflow: hidden;
+}
+
+.despedida-persoanaje {
+    flex: 0 0 40%; 
+    z-index: 2;
+    padding-left: 2rem;
+}
+
+.despedida-personaje img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    display: block;
+}
+
+.despedida-info {
+    flex: 1;
+    padding: 2rem 1rem 2rem 2rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.despedida-info p {
+    color: #333;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-style: italic;
+    border-bottom: 2px solid var(--rosa-fuerte); 
+    padding-bottom: 0.5rem;
+}
+
+.despedida-decoracion {
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    background-color: var(--rosa-fuerte);
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+
+/* ==================================================
+   RESPONSIVE (TABLETS Y ESCRITORIO INTERMEDIO)
+================================================== */
+@media (max-width: 900px) {
+    /* Curso Principal */
+    .curso-tarjeta {
+        flex-direction: column;
+    }
+    
+    .tarjeta-info {
+        order: 2;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .tarjeta-visual {
+        order: 1;
+    }
+    
+    .tarjeta-imagen img {
+        width: 100%;
+        height: 250px;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .tarjeta-detalle-inferior {
+        border-radius: 0;
+    }
+
+    /* Fechas */
+    .fechas-timeline {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .evento {
+        flex: 0 0 48%; /* Dos columnas en tablets */
+        margin-bottom: 2rem;
+    }
+
+    /* Despedida */
+    .cursos-despedida {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1rem 0;
+    }
+    .despedida-info {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+    .despedida-decoracion {
+        display: none; 
+    }
+}
+/* ======================================= */
+/* 📲 MEDIA QUERY - CELULARES (Máximo 768px) - CORRECCIONES DE ESPACIADO Y CENTRADO */
+/* ======================================= */
+@media (max-width: 768px) {
+    /* CORRECCIÓN GLOBAL: Eliminación de espacios en blanco y 100% de ancho */
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden; 
+    }
+    
+    /* ✅ SOLUCIÓN CLAVE: Este es el único lugar donde definimos el padding lateral para toda la página. */
+    .contenedor-principal {
+        padding: 0 10px; /* Damos 10px de aire a los lados de toda la página */
+        width: 100%;
+        margin: 0 auto; /* Asegura el centrado */
+    }
+
+    /* ✅ CORRECCIÓN: Quitamos el padding de estos contenedores, ya que lo hace el padre (.contenedor-principal) */
+    .mas {
+        margin-top: 30px; 
+        width: 100%;
+        padding: 0; /* ✅ Eliminamos padding lateral duplicado */
+        margin-left: auto; /* ✅ Aseguramos centrado */
+        margin-right: auto; /* ✅ Aseguramos centrado */
+    }
+    
+    .cursos-hero {
+        height: 200px; 
+        margin-bottom: 1.5rem;
+        width: 100%;
+        padding: 0;
+    }
+
+    /* ✅ Centramos el título 'Próximamente' (.cosa) */
+    .cosa {
+        padding: 0; /* ✅ Eliminamos padding lateral */
+        margin: 20px auto 12px auto; /* Centramos el bloque */
+        justify-content: center; /* Centramos los ítems del flexbox */
+    }
+    
+    /* ✅ Ajustamos el título 'Estrenos recientes' (.t) */
+    .t {
+        margin-top: 15px; 
+        text-align: center; 
+        margin-left: auto; /* ✅ Aseguramos centrado */
+        margin-right: auto; /* ✅ Aseguramos centrado */
+        padding: 0;
+    }
+    .t h1 {
+        display: block; 
+        text-align: center;
+    }
+
+    /* ✅ Corrección del espaciado y centrado del título de la sección de fechas */
+    .titulo-seccion {
+        margin: 2.5rem auto 1rem; /* ✅ Centrado con auto */
+        padding: 0; /* ✅ Eliminamos padding lateral */
+        text-align: center; 
+    }
+
+    /* ✅ Centrado de la tarjeta principal */
+    .curso-principal {
+        width: 100%;
+        max-width: 100%;
+        padding: 0; 
+        margin: 0.5rem auto 1rem; /* ✅ CORRECCIÓN SINTAXIS: Se cambió 'rem' por '1rem' */
+    }
+
+    .curso-tarjeta {
+        flex-direction: column;
+        border-radius: 10px; 
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+        margin: 0; /* ✅ El contenedor padre (.curso-principal) maneja el espaciado con padding */
+    }
+    
+    /* ... (El resto de estilos de tarjeta se ve bien) ... */
+    
+    /* Carrusel */
+    .cursos-carrusel {
+        padding: 1rem 0;
+    }
+    
+    .cursos-grid {
+        padding: 0; /* ✅ El espaciado interno lo damos con el margen del item */
+        gap: 1rem; 
+        justify-content: flex-start;
+    }
+    
+    .curso-proximo {
+        min-width: 220px; 
+        width: 220px;     
+        margin-left: 10px; /* ✅ Damos el espaciado a la izquierda */
+    }
+    .cursos-grid .curso-proximo:last-child {
+        margin-right: 10px; /* ✅ Damos espaciado al último para el scroll */
+    }
+
+
+    /* ✅ Centrado y ajuste de Fechas */
+    .fechas-estreno {
+        margin: 3rem auto 2rem;
+        padding: 0; 
+        text-align: center; 
+    }
+    
+    .fechas-timeline {
+        gap: 0.5rem; 
+        padding: 0;
+        justify-content: center; 
+    }
+    
+    .evento {
+        flex: 0 0 90%; 
+        max-width: 90%;
+        margin: 0 auto 1.5rem auto; 
+        padding-top: 4rem; 
+        text-align: center;
+    }
+    
+    /* Despedida */
+    .cursos-despedida {
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto 3rem;
+        padding: 2rem 0;
+    }
+
+    /* ✅ Corregimos el header para que centre su contenido en móvil */
+    .cabecera {
+        padding: 8px 10px; /* ✅ Añadimos padding para que no se pegue a los bordes */
+    }
+    .logo {
+        margin-left: 0; /* ✅ Eliminamos margen fijo de escritorio */
+    }
+    .navegacion {
+        margin-right: 0; /* ✅ Eliminamos margen fijo de escritorio */
+    }
+
+    /* ✅ Footer - Ajustes específicos para centrado */
+    .footer-top, .cop, .footer-bottom {
+        padding: 0; /* ✅ El padre (.footer) ya tiene padding o es innecesario aquí */
+        width: 100%;
+        margin: 0 auto; /* ✅ Centra el bloque */
+    }
+    .footer-top {
+        padding: 1rem 0;
+        justify-content: space-around;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .cop, .footer-bottom {
+         flex-direction: column;
+         gap: 10px;
+         text-align: center;
+    }
+}
+
+/* ======================================= */
+/* 📲 MEDIA QUERY - CELULARES PEQUEÑOS (Máximo 480px) */
+/* ======================================= */
+@media (max-width: 480px) {
+    
+    .contenedor-principal {
+        padding: 0 5px; /* Reducimos a 5px de aire para pantallas muy pequeñas */
+    }
+    
+    .cabecera {
+        padding: 6px 0;
+    }
+    
+    /* Fechas - una columna */
+    .evento {
+        flex: 0 0 100%; 
+        margin-bottom: 1.5rem;
+        padding: 4rem 10px 0;
+    }
+    
+    /* Footer */
+    .footer-social img {
+        width: 22px;
+        height: 22px;
+    }
+    .footer-top, .cop, .footer-bottom {
+        padding: 0 5px;
+    }
+}
+
+
+/* ==================================================
+   HEADER Y NAVEGACIÓN (Botones más bajos aplicados aquí)
+================================================== */
+
+.contenedor-principal {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.cabecera {
+    width: 100%;
+    background: #f5f5f5;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    min-height: 50px;
+    font-family:sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+.navegacion {
+    margin-right: 22px;
+}
+
+.navegacion ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 1.1em;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reducción de la altura del botón (3px padding vertical) */
+.navegacion ul li a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500px;
+    border-radius: 50px;
+    padding: 6px 26px; 
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #000;
+    transition: all 0.3s ease;
+}
+
+
+.navegacion ul li a[href="tienda.html"] {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    padding-right: 16px;
+    position: relative;
+}
+
+.navegacion ul li a[href="tienda.html"]::after {
+   
+    font-size: 0.55em;
+    margin-left: 6px;
+    position: relative;
+    top: -1px;
+}
+
+
+.navegacion ul li a {
+    background-color: #474860;
+    color: #ffffff;
+}
+
+.navegacion ul li a.activo {
+    background-color: #4a4a63;
+    color: #fff;
+}
+
+
+.navegacion ul li a:hover {
+    background-color:#f5f5f5;
+    color: #4a4a63;
+}
+
+
+.navegacion i {
+    font-size: 1em;
+}
+
+
+@media (max-width: 600px) {
+    .cabecera {
+        flex-direction: row;
+        padding: 6px 0;
+    }
+
+    .logo {
+        margin-left: 0; 
+        padding-left: 8px; 
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .navegacion {
+        margin-right: 0; 
+        padding-right: 8px; 
+    }
+
+    .navegacion ul {
+        gap: 6px;
+        font-size: 0.9em;
+    }
+
+    /* Reducción de la altura del botón en móvil (2px padding vertical) */
+    .navegacion ul li a {
+        padding: 2px 12px; 
+    }
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+.footer {
+    width: 100%;
+    background: #474860;
+    color: #fff;
+    padding: 18px 0 0;
+    font-family: sans-serif;
+    font-size: 1em;
+    margin-top: 45px;
+    overflow-x: hidden;
+}
+
+/* Parte superior del footer */
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    font-size: 0.98em;
+    margin-bottom: 12px;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 12px 32px;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #EE85BC;
+}
+
+/* Copyleft y botones */
+.cop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 8px auto 12px;
+    font-size: 0.9em;
+}
+
+.lolo {
+    margin-left: 10px;
+}
+
+.lo {
+    display: inline-block;
+    border-radius: 20px;
+    border: none;
+    min-width: 120px;
+    max-width: 170px;
+    height: 28px;
+    font-size: 0.88em;
+    cursor: pointer;
+    background: #EE85BC;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.lo:hover {
+    background: #7AD5F9;
+    transform: scale(1.05);
+}
+
+.lo:active {
+    transform: scale(0.98);
+}
+
+/* Branding */
+.footer-brad {
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Separador */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px auto;
+    width: 90%;
+}
+
+/* Parte inferior del footer */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Redes sociales */
+.footer-social a {
+    margin: 0 3px;
+}
+
+.footer-social img {
+    width: 28px;
+    height: 28px;
+    margin: 0 1px;
+    vertical-align: middle;
+}
+
+/* --------------------
+   MEDIA QUERIES RESPONSIVE DEL FOOTER
+-------------------- */
+@media (max-width: 1024px) {
+    .footer-top,
+    .cop,
+    .footer-bottom {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* CORRECCIÓN: Aseguramos 100% de ancho sin padding lateral */
+    .footer {
+        width: 100%;
+        margin-top: 45px;
+        padding: 18px 0 0;
+    }
+    
+    .footer-top,
+    .cop,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 1rem; 
+    }
+
+    .footer-top {
+        margin-left: 0;
+    }
+
+    .lo {
+        min-width: 100px;
+        max-width: 140px;
+    }
+
+    hr {
+        width: 95%;
+    }
+}
