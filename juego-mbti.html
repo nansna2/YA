@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AHNISA</title>
+  <link rel="stylesheet" href="juego-mbti.css">
+</head>
+<body>
+  <main id="app" class="app">
+    <header class="header">
+      <h1 class="logo">El Juguete de Maxi</h1>
+      <p class="tag">Un test misterioso que revela tu MBTI a través de las travesuras de Maxi</p>
+    </header>
+
+    <section id="scene" class="scene">
+      <article id="narrative" class="narrative" aria-live="polite">
+        </article>
+
+      <div id="choices" class="choices" role="list">
+        </div>
+
+      <div class="controls">
+        <button id="skip" class="btn ghost">Saltar (no recomendado)</button>
+        <button id="next" class="btn primary hidden">Siguiente</button>
+      </div>
+
+      <div id="progress" class="progress" aria-hidden="true">
+        <span id="step">1</span> / 4
+      </div>
+    </section>
+
+    <section id="result" class="scene hidden" aria-live="polite">
+      <h2 class="result-title">Tu mapa interior</h2>
+      <p id="summary" class="summary"></p>
+
+      <div id="mbtiCard" class="mbti-card">
+        <div class="mbti-code" id="mbtiCode"></div>
+        <div class="mbti-desc" id="mbtiDesc"></div>
+      </div>
+
+      <div class="controls">
+        <button id="restart" class="btn primary">Volver a empezar</button>
+        <button id="details" class="btn ghost">Ver decisiones</button>
+      </div>
+
+      <div id="decisions" class="decisions hidden"></div>
+    </section>
+
+    <footer class="footer">
+      <small>Basado en rasgos MBTI — esta es una experiencia lúdica y sugerente.</small>
+    </footer>
+  </main>
+
+  <script src="juego-mbti.js"></script>
+</body>
+</html>

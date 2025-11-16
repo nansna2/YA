@@ -1,0 +1,144 @@
+:root{
+  --bg: #ffffff;
+  --panel: #FFFFFF;
+  --accent: #EE85BC; /* color solicitado */
+  --muted: #666666;
+  --text: #0a0a0a;
+  --card-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  --gap: 18px;
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #fff, #fff);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* Screens */
+.screen{display:none; width:100%; max-width:1100px}
+.screen.active{display:block}
+
+/* Minimal header */
+.title{font-size:2.1rem; margin:6px 0; color:var(--text)}
+.subtitle{color:var(--muted); margin:6px 0 18px}
+.controls{margin-top:12px}
+.btn{
+  padding:10px 16px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:#fff;
+  cursor:pointer;
+  font-weight:600;
+  margin-right:8px;
+}
+.btn.primary{
+  background:var(--accent);
+  color:white;
+  border: none;
+  box-shadow: var(--card-shadow);
+}
+.credits{color:var(--muted); margin-top:14px}
+
+/* Card for intro/reveal */
+.card, .reveal-card, .final-card{
+  background: #fff;
+  padding:24px;
+  border-radius:12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* GAME LAYOUT */
+.game-header{display:flex; justify-content:space-between; margin-bottom:12px; font-weight:600; color:var(--muted)}
+.game-main{
+  background: #fff;
+  padding:16px;
+  border-radius:12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Top half: personaje grande (fijo) */
+.top-half{display:flex; flex-direction:column; align-items:center; gap:10px; padding-bottom: var(--gap)}
+.character-img{
+  width:100%;
+  max-width:520px;       /* ocupa la mitad superior visual en pantallas anchas */
+  height:360px;          /* tamaño grande y fijo */
+  object-fit:cover;
+  border-radius:14px;
+  border:4px solid rgba(238,133,188,0.12);
+  box-shadow: 0 12px 30px rgba(238,133,188,0.08);
+  background: linear-gradient(180deg, rgba(238,133,188,0.05), rgba(0,0,0,0.02));
+}
+.hint{font-size:1rem; color:var(--muted); text-align:center; max-width:900px;}
+
+/* Options grid: 2 rows x 4 columnas, cajas grandes */
+.options{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 120px; /* altura inicial */
+  gap: 14px;
+  margin-top: 14px;
+}
+.option{
+  background: white;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  border: 3px solid rgba(0,0,0,0.04);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  user-select:none;
+  padding:8px;
+}
+.option img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  border-radius:8px;
+  width: 100%;
+  height: 100%;
+}
+.option:hover{ transform: translateY(-6px); }
+.option.disabled{ opacity:0.45; pointer-events:none; }
+
+.option.correct{
+  border-color: rgba(34,197,94,0.14);
+  box-shadow: 0 10px 28px rgba(34,197,94,0.06);
+}
+.option.incorrect{
+  animation: shake .28s;
+  border-color: rgba(239,68,68,0.14);
+}
+
+.message{ height:24px; color:var(--muted); margin-top:10px; text-align:center; font-weight:600; }
+
+/* Reveal card */
+.reveal-card h2{ color:var(--accent); margin-bottom:8px;}
+
+/* Animations */
+@keyframes shake{
+  0%{ transform: translateX(0) }
+  25%{ transform: translateX(-6px) }
+  50%{ transform: translateX(6px) }
+  75%{ transform: translateX(-4px) }
+  100%{ transform: translateX(0) }
+}
+
+/* Responsive: en móvil poner 2 columnas (2x4) con opciones más altas */
+@media (max-width:900px){
+  .character-img{ height:280px; max-width:420px; }
+  .options{ grid-template-columns: repeat(2,1fr); grid-auto-rows:140px; }
+}
+@media (max-width:420px){
+  .character-img{ height:220px; max-width:360px; }
+  .options{ grid-auto-rows:120px; gap:10px; }
+  .btn{ padding:8px 12px; font-size:0.95rem; }
+}

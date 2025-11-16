@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juego Personaje — Prototipo</title>
+  <link rel="stylesheet" href="juego-entorno.css">
+</head>
+<body>
+  <div id="app" class="app">
+
+    <!-- INICIO -->
+    <section id="screen-start" class="screen active">
+      <h1 class="title">Identifica al Personaje</h1>
+      <p class="subtitle">Adivina cuál es el personaje misterioso a partir de pistas visuales y contextuales.</p>
+      <div class="controls">
+        <button id="btn-play" class="btn primary">Jugar</button>
+        <button id="btn-reset" class="btn">Reiniciar progreso</button>
+      </div>
+      <p class="credits">Prototipo — las imágenes son de ejemplo y puedes cambiarlas por tus propias PNGs.</p>
+    </section>
+
+    <!-- INTRO (por nivel) -->
+    <section id="screen-intro" class="screen">
+      <div class="card">
+        <h2 id="intro-title">Nivel 1</h2>
+        <p id="intro-text">Aquí aparecerá una breve introducción sugerente para el personaje (sin revelarlo).</p>
+        <div class="controls">
+          <button id="btn-start-level" class="btn primary">Comenzar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUEGO -->
+    <section id="screen-game" class="screen">
+      <header class="game-header">
+        <div id="level-indicator">Nivel 1 / 4</div>
+        <div id="sublevel-indicator">Pista 1 / 4</div>
+      </header>
+
+      <main class="game-main">
+        <!-- MITAD SUPERIOR: PERSONAJE (PNG grande, fijo) -->
+        <div class="top-half">
+          <img id="character-img" class="character-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop&sat=-30" alt="personaje (reemplázame)">
+          <div id="hint-box" class="hint">Pista: ...</div>
+        </div>
+
+        <!-- MITAD INFERIOR: 8 OPCIONES (2 filas x 4 columnas) -->
+        <div id="options" class="options" aria-live="polite"></div>
+      </main>
+
+      <footer class="game-footer">
+        <div id="message" class="message" role="status"></div>
+      </footer>
+    </section>
+
+    <!-- REVELACIÓN -->
+    <section id="screen-reveal" class="screen">
+      <div class="reveal-card">
+        <h2 id="reveal-title">Revelación</h2>
+        <p id="reveal-text">Aquí se mostrará el nombre y descripción del personaje misterioso.</p>
+        <div class="controls">
+          <button id="btn-next-level" class="btn primary">Siguiente personaje</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIN -->
+    <section id="screen-final" class="screen">
+      <div class="final-card">
+        <h2>Has completado el reto</h2>
+        <p>Descubriste todos los personajes. ¡Gracias por jugar!</p>
+        <button id="btn-play-again" class="btn primary">Jugar de nuevo</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="juego-entorno.js"></script>
+</body>
+</html>
